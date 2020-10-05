@@ -1,1 +1,1 @@
-console.log("Hello World!");
+import { compose, pipe } from 'lodash/fp'
