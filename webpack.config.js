@@ -1,4 +1,5 @@
 const path = require("path");
+const { SourceMapDevToolPlugin } = require("webpack");
 
 module.exports = {
   entry: "./src/index.js",
@@ -12,3 +13,19 @@ module.exports = {
   },
   mode: "development"
 };
+
+module: {
+  rules: [
+    {
+      test: /\.js$/,
+      enforce: 'pre',
+      use: ['source-map-loader'],
+    }
+  ]
+};
+
+plugins: [
+  new SourceMapDevToolPlugin({
+    filename: "[file].map"
+  })
+]
