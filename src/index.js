@@ -1,20 +1,29 @@
-import store from "./store"
-import { bugAdded, bugRemoved, bugResolved } from "./actionCreators"
+// import store from "./store"
+// import { bugAdded, bugRemoved, bugResolved } from "./actionCreators"
 
-const unsubscribe = store.subscribe(() => {
-    console.log("Store Changed!", store.getState());
+// const unsubscribe = store.subscribe(() => {
+//     console.log("Store Changed!", store.getState());
+// })
+
+// unsubscribe();
+
+// store.dispatch(bugAdded("Bug1"));
+// // store.dispatch(bugRemoved(1));
+// store.dispatch(bugResolved(1));
+
+
+
+// console.log(store) 
+// console.log(store.getState()); //to view state of store
+
+
+import store from './customStore.js'
+import * as actions from "./actionCreators"
+
+store.subscribe(() => {
+    console.log("Store changed!")
 })
 
-unsubscribe();
+store.dispatch(actions.bugAdded("Bug 1"))
 
-store.dispatch(bugAdded("Bug1"));
-// store.dispatch(bugRemoved(1));
-store.dispatch(bugResolved(1));
-
-
-
-console.log(store) 
-console.log(store.getState()); //to view state of store
-
-
-
+console.log(store.getState())
