@@ -17,7 +17,7 @@
 // console.log(store.getState()); //to view state of store
 
 
-import store from './customStore.js'
+import store from './store'
 import * as actions from "./actionCreators"
 
 store.subscribe(() => {
@@ -25,5 +25,8 @@ store.subscribe(() => {
 })
 
 store.dispatch(actions.bugAdded("Bug 1"))
+store.dispatch(actions.bugAdded("Bug 2"))
+store.dispatch(actions.bugAdded("Bug 3"))
+store.dispatch(actions.bugResolved(1))
 
 console.log(store.getState())
